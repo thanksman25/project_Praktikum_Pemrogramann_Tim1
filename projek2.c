@@ -45,3 +45,22 @@ int main() {
                     break;
                 }
             }
+            if (unique && strlen(clean) > 0) {
+                strcpy(words[word_count++], clean);
+            }
+
+            lirik = strtok(NULL, " \n");
+               }
+           }
+
+           // Tulis ke file output
+           for (int i = 0; i < word_count; i++) {
+           fprintf(output, "%s=\n", words[i]);
+          }
+
+    fclose(input);
+    fclose(output);
+    return 0;
+}
+
+         
