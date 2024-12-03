@@ -24,3 +24,24 @@ int main() {
             is_title = 0;
             continue;
         }
+
+     char *lirik = strtok(line, " \n");
+        while (lirik) {
+            // Bersihkan kata
+            char clean[MAX_LINE] = "";
+            int j = 0;
+            for (int i = 0; lirik[i]; i++) {
+                if (isalnum(lirik[i]) || lirik[i] == '\'' || lirik[i] == '-') {
+                    clean[j++] = tolower(lirik[i]);
+                }
+            }
+            clean[j] = '\0';
+
+            // Cek keunikan
+            int unique = 1;
+            for (int i = 0; i < word_count; i++) {
+                if (strcmp(words[i], clean) == 0) {
+                    unique = 0;
+                    break;
+                }
+            }
