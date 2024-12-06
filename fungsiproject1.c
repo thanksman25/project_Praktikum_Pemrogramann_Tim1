@@ -202,30 +202,35 @@ void menuAdmin() {
     char pilihan;
     do {
         printf("\nMenu Admin:\n");
-        printf("1. Tambah Alat\n");
-        printf("2. Hapus Alat\n");
-        printf("3. Edit Alat\n");
+        printf("1. Lihat Alat\n");
+        printf("2. Tambah Alat\n");
+        printf("3. Hapus Alat\n");
         printf("4. Keluar\n");
+        printf("5. Keluar\n");
         printf("Pilih menu: ");
+        
         scanf("%s", &pilihan);
 
         switch (pilihan) {
             case '1':
-                tambahAlatLab();
+                showAlatLab();
                 break;
             case '2':
-                hapusAlatLab();
+                TambahAlatLab();
                 break;
             case '3':
-                editAlatLab();
+                hapusAlatLab();
                 break;
             case '4':
+                editAlatLab();
+                break;
+            case '5':
                 printf("Keluar dari menu admin.\n");
                 break;
             default:
                 printf("Pilihan tidak valid.\n");
         }       
-    } while (pilihan != '4');
+    } while (pilihan != '5');
 }
 // Menu user
 void menuUser() {
