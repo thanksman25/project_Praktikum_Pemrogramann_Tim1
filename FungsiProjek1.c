@@ -227,3 +227,34 @@ void menuAdmin() {
         }       
     } while (pilihan != '4');
 }
+// Menu user
+void menuUser() {
+
+    char pilihan;
+    do {
+        printf("\nMenu User:\n");
+        printf("1. Lihat Alat Lab\n");
+        printf("2. Pinjam Alat\n");
+        printf("3. Kembalikan Alat\n");
+        printf("4. Keluar\n");
+        printf("Pilih menu: ");
+        scanf("%s", &pilihan);
+
+        switch (pilihan) {
+            case '1':
+                showAlatLab();
+                break;
+            case '2':
+                pinjamAlatLab();
+                break;
+            case '3':
+                kembalikanAlatLab();
+                break;
+            case '4':
+                printf("Keluar dari sistem.\n");
+                break;
+            default:
+                printf("Pilihan tidak valid.\n");
+        }
+    } while (pilihan != '4');
+}
