@@ -74,3 +74,102 @@ void showAlatLab() {
         }
     }
 }
+
+// Fungsi untuk meminjam alat lab
+void pinjamAlatLab() {
+    unsigned int id;
+    printf("Masukkan ID alat yang ingin dipinjam: ");
+    scanf("%u", &id);
+    for (int i = 0; alatLabs[i].id != 0; i++) {
+        if (alatLabs[i].id == id && alatLabs[i].jumlah_tersedia > 0) {
+            alatLabs[i].jumlah_tersedia--;
+            printf("Anda berhasil meminjam alat: %s\n", alatLabs[i].nama);
+            writeDataAlat();
+            return;
+        }
+    }
+    printf("Alat tidak ditemukan atau tidak tersedia.\n");
+}
+
+// Fungsi untuk mengembalikan alat lab
+void kembalikanAlatLab() {
+    unsigned int id;
+    printf("Masukkan ID alat yang ingin dikembalikan: ");
+    scanf("%u", &id);
+    for (int i = 0; alatLabs[i].id != 0; i++) {
+        if (alatLabs[i].id == id) {
+            alatLabs[i].jumlah_tersedia++;
+            printf("Anda berhasil mengembalikan alat: %s\n", alatLabs[i].nama);
+            writeDataAlat();
+            return;
+        }
+    }
+    printf("Alat tidak ditemukan.\n");
+}
+
+// Fungsi untuk admin menambah alat
+void tambahAlatLab() {
+    AlatLab newAlat;
+    printf("Masukkan ID alat: ");
+    scanf("%u", &newAlat.id);
+
+    for (int i = 0; i < MAX_ALAT; i++) {
+        if (alatLabs[i].id == newAlat.id) {
+            printf("ID alat sudah digunakan. Masukkan ID lain.\n");
+            return;
+        }
+    }
+
+    printf("Masukkan nama alat: ");
+    scanf("%s", newAlat.nama);
+    printf("Masukkan merek alat: ");
+    scanf("%s", newAlat.merek);
+    printf("Masukkan model alat: ");
+    scanf("%s", newAlat.model);
+    printf("Masukkan tahun produksi: ");
+    scanf("%u", &newAlat.tahun_produksi);
+    printf("Masukkan jumlah unit: ");
+    scanf("%u", &newAlat.jumlah_unit);
+    newAlat.jumlah_tersedia = newAlat.jumlah_unit;
+
+    for (int i = 0; i < MAX_ALAT; i++) {
+        if (alatLabs[i].id == 0) { // Cari elemen kosong
+            alatLabs[i] = newAlat;
+            break;
+        }
+    }
+
+    writeDataAlat();
+}
+
+// Fungsi untuk admin menghapus alat
+void hapusAlatLab() {
+    unsigned int id;
+    printf("Masukkan ID alat yang ingin dihapus: ");
+    
+    // Periksa apakah scanf berhasil
+    if (scanf("%u", &id) != 1) {
+        printf("Input tidak valid.\n");
+        return;
+    }
+
+    // Mengasumsikan alatLabs adalah array dengan ukuran yang diketahui
+    int found = 0; // Flag untuk memeriksa apakah item ditemukan
+    for (int i = 0; i < MAX_ALAT; i++) { // Ganti MAX_ALAT_LABS dengan ukuran sebenarnya dari array
+        if (alatLabs[i].id == id) {
+            found = 1; // Set flag ditemukan
+            // Geser elemen setelah yang dihapus ke kiri
+            for (int j = i; j < MAX_ALAT - 1; j++) {
+                alatLabs[j] = alatLabs[j + 1];
+            }
+            alatLabs[MAX_ALAT - 1].id = 0; // Mengatur elemen terakhir menjadi 0 (atau nilai default lainnya)
+            printf("\nAlat dengan ID %u berhasil dihapus.\n", id);
+            writeDataAlat(); // Pastikan fungsi ini menangani data yang diperbarui dengan benar
+            break; // Keluar dari loop setelah penghapusan
+        }
+    }
+    
+    if (!found) {
+        printf("Alat tidak ditemukan.\n");
+    }
+}
