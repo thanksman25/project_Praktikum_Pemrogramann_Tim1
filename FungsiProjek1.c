@@ -197,3 +197,33 @@ void editAlatLab() {
     }
     printf("Alat tidak ditemukan.\n");
 }
+// Menu admin
+void menuAdmin() {
+    char pilihan;
+    do {
+        printf("\nMenu Admin:\n");
+        printf("1. Tambah Alat\n");
+        printf("2. Hapus Alat\n");
+        printf("3. Edit Alat\n");
+        printf("4. Keluar\n");
+        printf("Pilih menu: ");
+        scanf("%s", &pilihan);
+
+        switch (pilihan) {
+            case '1':
+                tambahAlatLab();
+                break;
+            case '2':
+                hapusAlatLab();
+                break;
+            case '3':
+                editAlatLab();
+                break;
+            case '4':
+                printf("Keluar dari menu admin.\n");
+                break;
+            default:
+                printf("Pilihan tidak valid.\n");
+        }       
+    } while (pilihan != '4');
+}
