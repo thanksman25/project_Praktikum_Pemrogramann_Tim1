@@ -2,14 +2,15 @@
 #include <string.h>
 #include <ctype.h>
 
-#define MAX_WORDS 1000
-#define MAX_LINE 256
+#define MAX_KATA 1000
+#define MAX_BARIS 256
 
 int main() {
 
-    char line[MAX_LINE], words[MAX_WORDS][MAX_LINE];
-    int word_count = 0;
-    int is_title = 1;
+    char baris[MAX_BARIS], kata[MAX_KATA][MAX_BARIS];
+    int jumlah_kata = 0;
+    int judul = 1;
+    int unik = 1;
 
     FILE *input = fopen("lirik.txt", "r");
     FILE *output = fopen("kosa-kata.word", "w");
@@ -18,49 +19,47 @@ int main() {
         return 1;
     }
 
-    while (fgets(line, sizeof(line), input)) {
-        if (is_title) { 
-            fprintf(output, "%s", line);
-            is_title = 0;
+    while (fgets(baris, sizeof(baris), input)) {
+        if (judul) { 
+            fprintf(output, "%s", baris);
+            judul = 0;
             continue;
         }
 
-     char *lirik = strtok(line, " \n");
+        char *lirik = strtok(baris, " \n");
         while (lirik) {
             // Bersihkan kata
-            char clean[MAX_LINE] = "";
+            char bersih[MAX_BARIS] = "";
             int j = 0;
             for (int i = 0; lirik[i]; i++) {
                 if (isalnum(lirik[i]) || lirik[i] == '\'' || lirik[i] == '-') {
-                    clean[j++] = tolower(lirik[i]);
+                    bersih[j++] = tolower(lirik[i]);
                 }
             }
-            clean[j] = '\0';
+            bersih[j] = '\0';
 
             // Cek keunikan
-            int unique = 1;
-            for (int i = 0; i < word_count; i++) {
-                if (strcmp(words[i], clean) == 0) {
-                    unique = 0;
+            for (int i = 0; i < jumlah_kata; i++) {
+                if (strcmp(kata[i], bersih) == 0) {
+                    unik = 0;
                     break;
                 }
             }
-            if (unique && strlen(clean) > 0) {
-                strcpy(words[word_count++], clean);
+
+            if (unik && strlen(bersih) > 0) {
+                strcpy(kata[jumlah_kata++], bersih);
             }
 
             lirik = strtok(NULL, " \n");
-               }
-           }
+        }
+    }
 
-           // Tulis ke file output
-           for (int i = 0; i < word_count; i++) {
-           fprintf(output, "%s=\n", words[i]);
-          }
+    // Tulis ke file output
+    for (int i = 0; i < jumlah_kata; i++) {
+        fprintf(output, "%s=\n\n", kata[i]);
+    }
 
     fclose(input);
     fclose(output);
     return 0;
 }
-
-         
