@@ -1,6 +1,6 @@
-all: projek1 projek2
-projek1 : projek1.c
-	gcc -o program1 projek1.c fungsiprojek1.c
+all: project1 project2
+projek1 : project1.c
+	gcc -o program1 project1.c fungsiproject1.c
 
-projek2 : projek2.c
-	gcc -o program2 projek2.c
+projek2 : project2.c
+	gcc -o program2 project2.c
