@@ -154,18 +154,17 @@ void hapusAlatLab() {
     }
 
     // Mengasumsikan alatLabs adalah array dengan ukuran yang diketahui
-    int found = 0; // Flag untuk memeriksa apakah item ditemukan
-    for (int i = 0; i < MAX_ALAT; i++) { // Ganti MAX_ALAT_LABS dengan ukuran sebenarnya dari array
+    int found = 0; 
+    for (int i = 0; i < MAX_ALAT; i++) { 
         if (alatLabs[i].id == id) {
-            found = 1; // Set flag ditemukan
-            // Geser elemen setelah yang dihapus ke kiri
-            for (int j = i; j < MAX_ALAT - 1; j++) {
+            found = 1; 
+         for (int j = i; j < MAX_ALAT - 1; j++) {
                 alatLabs[j] = alatLabs[j + 1];
             }
-            alatLabs[MAX_ALAT - 1].id = 0; // Mengatur elemen terakhir menjadi 0 (atau nilai default lainnya)
+            alatLabs[MAX_ALAT - 1].id = 0; 
             printf("\nAlat dengan ID %u berhasil dihapus.\n", id);
-            writeDataAlat(); // Pastikan fungsi ini menangani data yang diperbarui dengan benar
-            break; // Keluar dari loop setelah penghapusan
+            writeDataAlat(); 
+            break; 
         }
     }
     
