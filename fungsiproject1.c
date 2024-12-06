@@ -205,7 +205,7 @@ void menuAdmin() {
         printf("1. Lihat Alat\n");
         printf("2. Tambah Alat\n");
         printf("3. Hapus Alat\n");
-        printf("4. Keluar\n");
+        printf("4. Edit Alat\n");
         printf("5. Keluar\n");
         printf("Pilih menu: ");
         
