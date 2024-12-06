@@ -173,3 +173,28 @@ void hapusAlatLab() {
         printf("Alat tidak ditemukan.\n");
     }
 }
+// Fungsi untuk admin mengedit alat
+void editAlatLab() {
+    unsigned int id;
+    printf("Masukkan ID alat yang ingin diedit: ");
+    scanf("%u", &id);
+    for (int i = 0; alatLabs[i].id != 0; i++) {
+        if (alatLabs[i].id == id) {
+            printf("Masukkan nama alat baru: ");
+            scanf("%s", alatLabs[i].nama);
+            printf("Masukkan merek alat baru: ");
+            scanf("%s", alatLabs[i].merek);
+            printf("Masukkan model alat baru: ");
+            scanf("%s", alatLabs[i].model);
+            printf("Masukkan tahun produksi baru: ");
+            scanf("%u", &alatLabs[i].tahun_produksi);
+            printf("Masukkan jumlah unit baru: ");
+            scanf("%u", &alatLabs[i].jumlah_unit);
+            alatLabs[i].jumlah_tersedia = alatLabs[i].jumlah_unit;
+            writeDataAlat();
+            printf("Alat dengan ID %u berhasil diedit.\n", id);
+            return;
+        }
+    }
+    printf("Alat tidak ditemukan.\n");
+}
