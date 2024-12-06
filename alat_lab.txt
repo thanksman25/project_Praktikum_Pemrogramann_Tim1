@@ -1,7 +1,7 @@
 1 Hammer MerkA ModelX 2020 10 9
 2 Screwdriver MerkB ModelY 2021 5 5
 3 Proyektor MerkC ModelZ 2019 10 7
-4 ydgd dfa afda 2013 5 5
+4 Papan_Tulis MerkD ModelW5 2013 5 3
 5 Switch MerkE ModelB1 2015 6 4
 6 Printer MerkF ModelH7 2018 7 3
 7 Scanner MerkG ModelG5 2017 9 4
