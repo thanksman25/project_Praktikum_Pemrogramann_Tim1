@@ -1,4 +1,4 @@
-# project_Praktikum_Pemrogramann_Tim1
+# Project_Praktikum_Pemrogramann_Tim1
 Tim 1
 - FAYLA SYIFA RUSTAM_2408107010029
 - ALMIRA SADIDA_2408107010004
