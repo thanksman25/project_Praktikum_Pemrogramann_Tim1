@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #define MAX_ALAT 100
 #define MAX_USER 2
 
@@ -154,17 +155,18 @@ void hapusAlatLab() {
     }
 
     // Mengasumsikan alatLabs adalah array dengan ukuran yang diketahui
-    int found = 0; 
-    for (int i = 0; i < MAX_ALAT; i++) { 
+    int found = 0; // Flag untuk memeriksa apakah item ditemukan
+    for (int i = 0; i < MAX_ALAT; i++) { // Ganti MAX_ALAT_LABS dengan ukuran sebenarnya dari array
         if (alatLabs[i].id == id) {
-            found = 1; 
-         for (int j = i; j < MAX_ALAT - 1; j++) {
+            found = 1; // Set flag ditemukan
+            // Geser elemen setelah yang dihapus ke kiri
+            for (int j = i; j < MAX_ALAT - 1; j++) {
                 alatLabs[j] = alatLabs[j + 1];
             }
-            alatLabs[MAX_ALAT - 1].id = 0; 
+            alatLabs[MAX_ALAT - 1].id = 0; // Mengatur elemen terakhir menjadi 0 (atau nilai default lainnya)
             printf("\nAlat dengan ID %u berhasil dihapus.\n", id);
-            writeDataAlat(); 
-            break; 
+            writeDataAlat(); // Pastikan fungsi ini menangani data yang diperbarui dengan benar
+            break; // Keluar dari loop setelah penghapusan
         }
     }
     
@@ -172,6 +174,7 @@ void hapusAlatLab() {
         printf("Alat tidak ditemukan.\n");
     }
 }
+
 // Fungsi untuk admin mengedit alat
 void editAlatLab() {
     unsigned int id;
@@ -197,6 +200,7 @@ void editAlatLab() {
     }
     printf("Alat tidak ditemukan.\n");
 }
+
 // Menu admin
 void menuAdmin() {
     char pilihan;
@@ -208,15 +212,15 @@ void menuAdmin() {
         printf("4. Edit Alat\n");
         printf("5. Keluar\n");
         printf("Pilih menu: ");
-        
+
         scanf("%s", &pilihan);
 
         switch (pilihan) {
-            case '1':
+            case '1' :
                 showAlatLab();
                 break;
             case '2':
-                TambahAlatLab();
+                tambahAlatLab();
                 break;
             case '3':
                 hapusAlatLab();
@@ -232,6 +236,7 @@ void menuAdmin() {
         }       
     } while (pilihan != '5');
 }
+
 // Menu user
 void menuUser() {
 
