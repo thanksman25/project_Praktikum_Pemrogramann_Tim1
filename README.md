@@ -1,12 +1,12 @@
 # Project_Praktikum_Pemrogramann_Tim1
 Tim 1
-- FAYLA SYIFA RUSTAM_2408107010029
-- ALMIRA SADIDA_2408107010004
-- ANNISA RAHMA FATHIA_2408107010027
-- SYIFA SALSABILA_2408107010018
-- ABDAN SYAKURA BIN YASIR_2408107010014
-- TEUKU AL JUMANATUL ALI_2408107010016
-- NAYLA NABILA SYAHEL_2408107010005
+- Fayla  Syifa Rustam_2408107010029
+- Almira Sadida_2408107010004
+- Annisa Rahma Fathia_2408107010027
+- Syifa Salsabila_2408107010018
+- Abdan Syakura Bin Yasir_2408107010014
+- Teuku Al Jumanatul Ali_2408107010016
+- Nayla Nabila Syahel_2408107010005
   
 Repository ini berisi dua project dengan deskripsi sebagai berikut:
 
@@ -18,11 +18,9 @@ Project Pertama: Sistem Peminjaman Alat Laboratorium
 
 Untuk menjalankan project ini:
 1. Simpan semua file terkait dalam satu folder.
-
 2. Buka terminal, lalu ketik perintah berikut untuk kompilasi:
    make project1
    Hasilnya adalah file eksekusi bernama program1.
-
 3. Untuk menjalankan program, masukkan akun yang sesuai. Contoh:
    ./program1 user user123    atau    ./program1 admin admin123
    
