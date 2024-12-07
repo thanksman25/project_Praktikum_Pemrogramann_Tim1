@@ -3,13 +3,13 @@
 #include <string.h>
 #include <string.h>
 
-// #include"fungsi.h"
 #include"header.h"
 #define MAX_ALAT 100
 #define MAX_USER 2
 
 
-// Struktur untuk menyimpan akun
+
+// struktur untuk menyimpan akun
 // typedef struct {
 //     char username[50];
 //     char password[50];
