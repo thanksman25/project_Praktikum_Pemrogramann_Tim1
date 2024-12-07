@@ -3,8 +3,6 @@
 #include <string.h>
 #include <string.h>
 #include"header.h"
-#define MAX_ALAT 100
- 
 
 int main(int argc, char *argv[]) {
     if (argc != 3) {
