@@ -1,6 +1,5 @@
 #ifndef HEADER_H
 #define HEADER_H
-
 #define MAX_ALAT 100
 #define MAX_USER 2
 
