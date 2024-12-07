@@ -56,7 +56,7 @@ int main() {
 
     // Tulis ke file output
     for (int i = 0; i < jumlah_kata; i++) {
-        fprintf(output, "%s=\n\n", kata[i]);
+        fprintf(output, "%s=\n", kata[i]);
     }
     //menutup file input dan output
     fclose(input);
