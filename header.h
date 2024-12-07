@@ -20,6 +20,7 @@ typedef struct {
     char password[50];
     int role; // 0: User, 1: Admin
 } Akun;
+
 // Daftar alat dan akun
 extern AlatLab alatLabs[MAX_ALAT];
 extern Akun akun[MAX_USER];
