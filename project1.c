@@ -2,19 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <string.h>
-
 #include"header.h"
 #define MAX_ALAT 100
 #define MAX_USER 2
-
-
-
-// struktur untuk menyimpan akun
-// typedef struct {
-//     char username[50];
-//     char password[50];
-//     int role; // 0: User, 1: Admin
-// } Akun;
 
 int main(int argc, char *argv[]) {
     if (argc != 3) {
