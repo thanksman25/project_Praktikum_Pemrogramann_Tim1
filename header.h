@@ -27,6 +27,7 @@ extern Akun akun[MAX_USER];
 
 // Fungsi untuk login
 int login(char *username, char *password);
+
 // Fungsi untuk membaca data alat dari file
 void readDataAlat();
 
